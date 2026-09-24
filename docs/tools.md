@@ -1,6 +1,7 @@
 # Browserless MCP — Tool Reference
 
-The hosted server at `https://mcp.browserless.io/mcp` exposes **14 tools** and **2 resources**, verified against `browserless-mcp` 1.28.1.
+The checked-in snapshot documents **14 tools** and **2 resources** exposed by
+`https://mcp.browserless.io/mcp` when this plugin release was prepared.
 
 > The authoritative schemas live on the running server — Cursor pulls them via the standard MCP `tools/list` call. Regenerate this list at any time with:
 >

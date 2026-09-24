@@ -2,6 +2,18 @@
 
 All notable changes to this plugin will be documented here.
 
+## 1.1.0
+
+- Added a repository-wide ecosystem inventory with conclusions, capability
+  boundaries, complementary tooling, and a prioritized roadmap.
+- Added setup guidance for ChatGPT, Codex, Claude, and Claude Code.
+- Added the portable `browserless-web-research` Agent Skill for tool routing,
+  evidence handling, and safe browser interaction.
+- Added `AGENTS.md` and `CLAUDE.md` so coding agents receive consistent
+  repository guidance.
+- Clarified that the live MCP server, rather than a pinned package version, is
+  authoritative for tool schemas.
+
 ## 1.0.0 — initial release
 
 - Added the `.cursor-plugin/plugin.json` manifest so the repository installs as a Cursor plugin.
