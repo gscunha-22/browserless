@@ -49,15 +49,18 @@ implementation.
 | `scripts/build-deeplinks.mjs` | Deterministic Cursor deeplink generator | Documentation maintenance |
 | `scripts/validate-repo.mjs` | Dependency-free manifest, skill, and link checks | Local and CI quality gate |
 | `.github/workflows/validate.yml` | Runs syntax and repository validation on pushes and pull requests | Continuous verification |
+| `package.json` | Node 22 requirement and development commands, with no runtime dependencies | Reproducible contributor workflow |
+| `SECURITY.md` | Disclosure scope and handling for credentials, sessions, profiles, and replays | Security governance |
 | `AGENTS.md` | Repository instructions for Codex and compatible coding agents | Consistent maintenance |
 | `CLAUDE.md` | Claude Code entry point | Consistent maintenance |
 | `assets/logo.svg` | Marketplace identity | Distribution |
 | `.gitignore` | Excludes dependencies, logs, and local environment files | Secret and workspace hygiene |
 | `LICENSE` | MIT terms for repository content | Reuse and distribution |
 
-There is no application runtime, package manifest, test framework, CI workflow,
-or server source in this repository. The two Node scripts intentionally rely
-only on built-in Node APIs.
+There is no application runtime, third-party Node dependency, test framework,
+or server source in this repository. The three Node scripts intentionally rely
+only on built-in Node APIs; `package.json` defines contributor commands and the
+supported Node version.
 
 ## Hosted MCP capability inventory
 

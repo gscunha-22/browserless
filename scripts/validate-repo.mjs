@@ -21,6 +21,7 @@ function parseJson(path) {
 
 const manifest = parseJson(".cursor-plugin/plugin.json");
 const mcp = parseJson("mcp.json");
+const development = parseJson("package.json");
 
 if (!manifest.name) errors.push(".cursor-plugin/plugin.json: missing name");
 if (!/^\d+\.\d+\.\d+$/.test(manifest.version ?? "")) {
@@ -40,6 +41,12 @@ if (manifest.mcpServers) {
 }
 if (!mcp.mcpServers?.browserless?.url) {
   errors.push("mcp.json: missing browserless URL");
+}
+if (development.version !== manifest.version) {
+  errors.push("package.json: version must match the plugin manifest");
+}
+if (!development.engines?.node) {
+  errors.push("package.json: missing Node.js engine requirement");
 }
 
 const skillsRoot = join(root, "skills");

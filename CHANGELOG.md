@@ -13,6 +13,8 @@ All notable changes to this plugin will be documented here.
   repository guidance.
 - Added dependency-free repository validation and a GitHub Actions quality
   gate for scripts, manifests, skill metadata, and internal links.
+- Declared the Node.js development version and npm commands, and added a
+  security policy for credentials and browser-session data.
 - Clarified that the live MCP server, rather than a pinned package version, is
   authoritative for tool schemas.
 

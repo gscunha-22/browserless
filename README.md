@@ -168,9 +168,14 @@ scripts/verify-mcp.mjs       Connectivity and tool-discovery check
 scripts/build-deeplinks.mjs  Regenerates the manual-install deeplinks
 scripts/validate-repo.mjs    Dependency-free repository quality checks
 .github/workflows/           Continuous validation
+package.json                 Node 22 development commands
+SECURITY.md                  Disclosure and sensitive-data guidance
 AGENTS.md                    Codex and cross-agent repository guidance
 CLAUDE.md                    Claude Code repository guidance
 ```
+
+Development utilities require Node.js 22 or later. Run `npm run validate` for
+the same dependency-free checks used by CI.
 
 To verify the hosted server from the command line:
 

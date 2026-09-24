@@ -17,10 +17,5 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Check JavaScript syntax
-        run: |
-          node --check scripts/build-deeplinks.mjs
-          node --check scripts/verify-mcp.mjs
-          node --check scripts/validate-repo.mjs
-      - name: Validate repository metadata and links
-        run: node scripts/validate-repo.mjs
+      - name: Validate repository
+        run: npm run validate

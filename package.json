@@ -1,0 +1,17 @@
+{
+  "name": "browserless-cursor-mcp-plugin",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Development utilities for the Browserless MCP agent plugin",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build:deeplinks": "node scripts/build-deeplinks.mjs",
+    "check": "node --check scripts/build-deeplinks.mjs && node --check scripts/verify-mcp.mjs && node --check scripts/validate-repo.mjs",
+    "validate": "npm run check && node scripts/validate-repo.mjs",
+    "verify:mcp": "node scripts/verify-mcp.mjs",
+    "verify:mcp:exec": "node scripts/verify-mcp.mjs --exec"
+  }
+}

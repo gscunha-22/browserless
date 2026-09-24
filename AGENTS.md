@@ -31,18 +31,15 @@ clients. It does not contain the Browserless server implementation.
 Run local checks:
 
 ```bash
-node --check scripts/verify-mcp.mjs
-node --check scripts/build-deeplinks.mjs
-node --check scripts/validate-repo.mjs
-node scripts/validate-repo.mjs
-node scripts/build-deeplinks.mjs
+npm run validate
+npm run build:deeplinks
 ```
 
 With a test account:
 
 ```bash
-BROWSERLESS_TOKEN=... node scripts/verify-mcp.mjs --json
-BROWSERLESS_TOKEN=... node scripts/verify-mcp.mjs --exec
+BROWSERLESS_TOKEN=... npm run verify:mcp -- --json
+BROWSERLESS_TOKEN=... npm run verify:mcp:exec
 ```
 
 The first live command verifies discovery; the second consumes Browserless
