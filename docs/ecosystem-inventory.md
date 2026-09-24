@@ -47,9 +47,13 @@ implementation.
 | `skills/browserless-web-research/SKILL.md` | Portable Agent Skill for routing and safe execution | Cursor, Claude, Codex, and compatible agents |
 | `scripts/verify-mcp.mjs` | MCP initialize/list/optional execution smoke test | Release verification |
 | `scripts/build-deeplinks.mjs` | Deterministic Cursor deeplink generator | Documentation maintenance |
+| `scripts/validate-repo.mjs` | Dependency-free manifest, skill, and link checks | Local and CI quality gate |
+| `.github/workflows/validate.yml` | Runs syntax and repository validation on pushes and pull requests | Continuous verification |
 | `AGENTS.md` | Repository instructions for Codex and compatible coding agents | Consistent maintenance |
 | `CLAUDE.md` | Claude Code entry point | Consistent maintenance |
 | `assets/logo.svg` | Marketplace identity | Distribution |
+| `.gitignore` | Excludes dependencies, logs, and local environment files | Secret and workspace hygiene |
+| `LICENSE` | MIT terms for repository content | Reuse and distribution |
 
 There is no application runtime, package manifest, test framework, CI workflow,
 or server source in this repository. The two Node scripts intentionally rely
@@ -154,11 +158,35 @@ Use one provider per role until reliability or coverage proves a need for a
 second. Multiple scraping backends increase cost, policy surface, and routing
 complexity.
 
+### Repository-relevant agent skills
+
+The current development environment also exposes reusable skills that can
+accelerate this plugin. They are external capabilities, not bundled
+dependencies:
+
+| Skill family | Use in this project |
+|---|---|
+| Plugin scaffold and submission review | Validate manifest shape, component paths, metadata, scope, and Marketplace readiness |
+| Browserless web research | Route acquisition and interaction through the shipped MCP tools |
+| Bright Data search/scrape/browser | Independent fallback or comparative extraction testing |
+| Firecrawl search/scrape/crawl/parse | Alternative crawl and structured extraction experiments |
+| Context search/scrape/extract/monitor | Web intelligence, parsing, and change-monitoring experiments |
+| Apify actor development and integration | Package repeatable scraping workloads when an Actor is the required delivery unit |
+| Netlify/Vercel deployment skills | Build companion APIs or UIs only when the product expands beyond an MCP configuration plugin |
+| Supabase/Neon database skills | Add structured persistence only for concrete history, job, or audit requirements |
+| Grafana observability skills | Instrument operational dashboards when request telemetry becomes available |
+| Documentation and review skills | Produce durable architecture docs and focused PR reviews |
+
+The repository should adopt an external skill only when its workflow repeats
+or becomes a release gate. Copying every available skill into the plugin would
+inflate discovery context and blur the product boundary.
+
 ## Recommended roadmap
 
 ### P0 — maintain correctness
 
-- Run `node --check scripts/*.mjs` on every change.
+- Run `node scripts/validate-repo.mjs` and syntax checks on every change; CI
+  now enforces both.
 - Run `verify-mcp.mjs --json` before releases when credentials are available.
 - Compare the live tool/resource list with `docs/tools.md`; update docs and
   examples together.

@@ -166,6 +166,8 @@ examples/                    Worked example prompts
 skills/                      Portable Agent Skills
 scripts/verify-mcp.mjs       Connectivity and tool-discovery check
 scripts/build-deeplinks.mjs  Regenerates the manual-install deeplinks
+scripts/validate-repo.mjs    Dependency-free repository quality checks
+.github/workflows/           Continuous validation
 AGENTS.md                    Codex and cross-agent repository guidance
 CLAUDE.md                    Claude Code repository guidance
 ```

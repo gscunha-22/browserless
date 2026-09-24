@@ -11,6 +11,8 @@ All notable changes to this plugin will be documented here.
   evidence handling, and safe browser interaction.
 - Added `AGENTS.md` and `CLAUDE.md` so coding agents receive consistent
   repository guidance.
+- Added dependency-free repository validation and a GitHub Actions quality
+  gate for scripts, manifests, skill metadata, and internal links.
 - Clarified that the live MCP server, rather than a pinned package version, is
   authoritative for tool schemas.
 

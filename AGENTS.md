@@ -33,6 +33,8 @@ Run local checks:
 ```bash
 node --check scripts/verify-mcp.mjs
 node --check scripts/build-deeplinks.mjs
+node --check scripts/validate-repo.mjs
+node scripts/validate-repo.mjs
 node scripts/build-deeplinks.mjs
 ```
 
