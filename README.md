@@ -1,8 +1,14 @@
-# Browserless MCP for Cursor
+# Browserless MCP for AI agents
 
-Headless browser automation for AI agents — scrape, crawl, search, screenshot, and run multi-step research from Cursor.
+Headless browser automation for AI agents — scrape, crawl, search, screenshot,
+and run multi-step research from Cursor, ChatGPT/Codex, Claude, and other MCP
+clients.
 
-This repository is the Cursor plugin for the **Browserless MCP server** hosted at [`https://mcp.browserless.io/mcp`](https://mcp.browserless.io/mcp). The server speaks the [Model Context Protocol](https://modelcontextprotocol.io) over streamable HTTP, authenticated with a Bearer token.
+This repository is the Cursor plugin and cross-agent integration guide for the
+**Browserless MCP server** hosted at
+[`https://mcp.browserless.io/mcp`](https://mcp.browserless.io/mcp). The server
+speaks the [Model Context Protocol](https://modelcontextprotocol.io) over
+streamable HTTP and supports OAuth or Bearer-token authentication.
 
 ---
 
@@ -42,6 +48,23 @@ If you are on a Cursor build older than 3.13 or prefer to manage MCP config your
 Restart Cursor, then check **Settings → MCP** — `browserless` should appear with all 14 tools enumerated.
 
 See [docs/install-cursor.md](docs/install-cursor.md) for deeplink installs, project-scoped config, and troubleshooting, and [docs/auth.md](docs/auth.md) for token management.
+
+---
+
+## OpenAI and Claude
+
+The remote MCP endpoint is not tied to Cursor. See
+[Use Browserless with OpenAI and Claude](docs/install-openai-claude.md) for:
+
+- ChatGPT custom MCP apps/connectors;
+- Codex CLI and IDE configuration;
+- Claude web and Desktop custom connectors;
+- Claude Code configuration.
+
+This plugin also ships the portable
+[`browserless-web-research`](skills/browserless-web-research/SKILL.md) Agent
+Skill. It gives compatible agents a consistent tool-routing, evidence, and
+safety workflow.
 
 ---
 
@@ -140,9 +163,19 @@ mcp.json                     MCP server definition
 assets/logo.svg              Marketplace logo
 docs/                        Install, auth, and tool reference
 examples/                    Worked example prompts
+skills/                      Portable Agent Skills
 scripts/verify-mcp.mjs       Connectivity and tool-discovery check
 scripts/build-deeplinks.mjs  Regenerates the manual-install deeplinks
+scripts/validate-repo.mjs    Dependency-free repository quality checks
+.github/workflows/           Continuous validation
+package.json                 Node 22 development commands
+SECURITY.md                  Disclosure and sensitive-data guidance
+AGENTS.md                    Codex and cross-agent repository guidance
+CLAUDE.md                    Claude Code repository guidance
 ```
+
+Development utilities require Node.js 22 or later. Run `npm run validate` for
+the same dependency-free checks used by CI.
 
 To verify the hosted server from the command line:
 
@@ -159,6 +192,7 @@ BROWSERLESS_TOKEN=your_token node scripts/verify-mcp.mjs
 - Browserless docs: [docs.browserless.io](https://docs.browserless.io)
 - Cursor plugin reference: [cursor.com/docs/reference/plugins](https://cursor.com/docs/reference/plugins)
 - MCP spec: [modelcontextprotocol.io](https://modelcontextprotocol.io)
+- Ecosystem inventory: [docs/ecosystem-inventory.md](docs/ecosystem-inventory.md)
 
 ---
 
